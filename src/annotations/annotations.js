@@ -10,31 +10,40 @@ import moveHover from '../../img/move_hover.png';
 import movePressed from '../../img/move_pressed.png';
 import moveRest from '../../img/move_rest.png';
 
+import editGroupHover from '../../img/edit_grouphover.png';
+import editHover from '../../img/edit_hover.png';
+import editPressed from '../../img/edit_pressed.png';
+import editRest from '../../img/edit_rest.png';
+
 export default {
 
-    @inject('state', 'draw', 'controls', 'overlay')
-    initialize(state, draw, controls, overlay) {
+    @inject('state', 'draw',  'edit', 'controls', 'overlay')
+    initialize(state, draw, edit, controls, overlay) {
         this.overlay = overlay.initialize();
         this.state = Object.create(state).initialize();
         this.controls = controls.initialize({
-            controls: [
-                {
-                    name: 'move',
-                    action: setState.bind(null, this, state),
-                    srcRest: moveRest,
-                    srcGroup: moveGroupHover,
-                    srcHover: moveHover,
-                    srcDown: movePressed
-                },
-                {
-                    name: 'draw',
-                    action: setState.bind(null, this, draw),
-                    srcRest: drawRest,
-                    srcGroup: drawGroupHover,
-                    srcHover: drawHover,
-                    srcDown: drawPressed
-                }
-            ]
+            controls: [{
+                name: 'move',
+                action: setState.bind(null, this, state),
+                srcRest: _imgMove_restPng2['default'],
+                srcGroup: _imgMove_grouphoverPng2['default'],
+                srcHover: _imgMove_hoverPng2['default'],
+                srcDown: _imgMove_pressedPng2['default']
+            }, {
+                name: 'draw',
+                action: setState.bind(null, this, draw),
+                srcRest: _imgDraw_restPng2['default'],
+                srcGroup: _imgDraw_grouphoverPng2['default'],
+                srcHover: _imgDraw_hoverPng2['default'],
+                srcDown: _imgDraw_pressedPng2['default']
+            }, {
+                name: 'edit',
+                action: setState.bind(null, this, edit),
+                srcRest: _imgEdit_restPng2['default'],
+                srcGroup: _imgEdit_grouphoverPng2['default'],
+                srcHover: _imgEdit_hoverPng2['default'],
+                srcDown: _imgEdit_pressedPng2['default']
+            }]
         }).activate('move');
         return this;
     },
