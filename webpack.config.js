@@ -6,7 +6,8 @@ module.exports = {
         libraryTarget: "umd"
     },
     externals: {
-        "OpenSeadragon": "OpenSeadragon"
+        "OpenSeadragon": "OpenSeadragon",
+        "ClipperLib": "ClipperLib"
     },
     module: {
         loaders: [
