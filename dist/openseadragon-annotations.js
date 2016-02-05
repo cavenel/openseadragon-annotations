@@ -230,24 +230,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	            controls: [{
 	                name: 'move',
 	                action: setState.bind(null, this, state),
-	                srcRest: _imgMove_restPng2['default'],
-	                srcGroup: _imgMove_grouphoverPng2['default'],
-	                srcHover: _imgMove_hoverPng2['default'],
-	                srcDown: _imgMove_pressedPng2['default']
+	                srcRest: _imgMove_restPng3['default'],
+	                srcGroup: _imgMove_grouphoverPng3['default'],
+	                srcHover: _imgMove_hoverPng3['default'],
+	                srcDown: _imgMove_pressedPng3['default']
 	            }, {
 	                name: 'draw',
 	                action: setState.bind(null, this, draw),
-	                srcRest: _imgDraw_restPng2['default'],
-	                srcGroup: _imgDraw_grouphoverPng2['default'],
-	                srcHover: _imgDraw_hoverPng2['default'],
-	                srcDown: _imgDraw_pressedPng2['default']
+	                srcRest: _imgDraw_restPng3['default'],
+	                srcGroup: _imgDraw_grouphoverpng3['default'],
+	                srcHover: _imgDraw_hoverpng3['default'],
+	                srcDown: _imgDraw_pressedpng3['default']
 	            }, {
 	                name: 'edit',
 	                action: setState.bind(null, this, edit),
-	                srcRest: _imgEdit_restPng2['default'],
-	                srcGroup: _imgEdit_grouphoverPng2['default'],
-	                srcHover: _imgEdit_hoverPng2['default'],
-	                srcDown: _imgEdit_pressedPng2['default']
+	                srcRest: _imgEdit_restpng3['default'],
+	                srcGroup: _imgEdit_grouphoverpng3['default'],
+	                srcHover: _imgEdit_hoverpng3['default'],
+	                srcDown: _imgEdit_pressedpng3['default']
 	            }]
 	        }).activate('move');
 	        return this;
