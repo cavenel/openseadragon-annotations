@@ -174,51 +174,51 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _imgDraw_grouphoverPng = __webpack_require__(/*! ../../img/draw_grouphover.png */ 5);
 	
-	var _imgDraw_grouphoverPng3 = _interopRequireDefault(_imgDraw_grouphoverPng);
+	var _imgDraw_grouphoverPng2 = _interopRequireDefault(_imgDraw_grouphoverPng);
 	
 	var _imgDraw_hoverPng = __webpack_require__(/*! ../../img/draw_hover.png */ 6);
 	
-	var _imgDraw_hoverPng3 = _interopRequireDefault(_imgDraw_hoverPng);
+	var _imgDraw_hoverPng2 = _interopRequireDefault(_imgDraw_hoverPng);
 	
 	var _imgDraw_pressedPng = __webpack_require__(/*! ../../img/draw_pressed.png */ 7);
 	
-	var _imgDraw_pressedPng3 = _interopRequireDefault(_imgDraw_pressedPng);
+	var _imgDraw_pressedPng2 = _interopRequireDefault(_imgDraw_pressedPng);
 	
 	var _imgDraw_restPng = __webpack_require__(/*! ../../img/draw_rest.png */ 8);
 	
-	var _imgDraw_restPng3 = _interopRequireDefault(_imgDraw_restPng);
+	var _imgDraw_restPng2 = _interopRequireDefault(_imgDraw_restPng);
 	
 	var _imgMove_grouphoverPng = __webpack_require__(/*! ../../img/move_grouphover.png */ 9);
 	
-	var _imgMove_grouphoverPng3 = _interopRequireDefault(_imgMove_grouphoverPng);
+	var _imgMove_grouphoverPng2 = _interopRequireDefault(_imgMove_grouphoverPng);
 	
 	var _imgMove_hoverPng = __webpack_require__(/*! ../../img/move_hover.png */ 10);
 	
-	var _imgMove_hoverPng3 = _interopRequireDefault(_imgMove_hoverPng);
+	var _imgMove_hoverPng2 = _interopRequireDefault(_imgMove_hoverPng);
 	
 	var _imgMove_pressedPng = __webpack_require__(/*! ../../img/move_pressed.png */ 11);
 	
-	var _imgMove_pressedPng3 = _interopRequireDefault(_imgMove_pressedPng);
+	var _imgMove_pressedPng2 = _interopRequireDefault(_imgMove_pressedPng);
 	
 	var _imgMove_restPng = __webpack_require__(/*! ../../img/move_rest.png */ 12);
 	
-	var _imgMove_restPng3 = _interopRequireDefault(_imgMove_restPng);
+	var _imgMove_restPng2 = _interopRequireDefault(_imgMove_restPng);
 	
 	var _imgEdit_grouphoverPng = __webpack_require__(/*! ../../img/edit_grouphover.png */ 13);
 	
-	var _imgEdit_grouphoverPng3 = _interopRequireDefault(_imgEdit_grouphoverPng);
+	var _imgEdit_grouphoverPng2 = _interopRequireDefault(_imgEdit_grouphoverPng);
 	
 	var _imgEdit_hoverPng = __webpack_require__(/*! ../../img/edit_hover.png */ 14);
 	
-	var _imgEdit_hoverPng3 = _interopRequireDefault(_imgEdit_hoverPng);
+	var _imgEdit_hoverPng2 = _interopRequireDefault(_imgEdit_hoverPng);
 	
 	var _imgEdit_pressedPng = __webpack_require__(/*! ../../img/edit_pressed.png */ 15);
 	
-	var _imgEdit_pressedPng3 = _interopRequireDefault(_imgEdit_pressedPng);
+	var _imgEdit_pressedPng2 = _interopRequireDefault(_imgEdit_pressedPng);
 	
 	var _imgEdit_restPng = __webpack_require__(/*! ../../img/edit_rest.png */ 16);
 	
-	var _imgEdit_restPng3 = _interopRequireDefault(_imgEdit_restPng);
+	var _imgEdit_restPng2 = _interopRequireDefault(_imgEdit_restPng);
 	
 	exports['default'] = _createDecoratedObject([{
 	    key: 'initialize',
@@ -230,24 +230,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	            controls: [{
 	                name: 'move',
 	                action: setState.bind(null, this, state),
-	                srcRest: _imgMove_restPng3['default'],
-	                srcGroup: _imgMove_grouphoverPng3['default'],
-	                srcHover: _imgMove_hoverPng3['default'],
-	                srcDown: _imgMove_pressedPng3['default']
+	                srcRest: _imgMove_restPng2['default'],
+	                srcGroup: _imgMove_grouphoverPng2['default'],
+	                srcHover: _imgMove_hoverPng2['default'],
+	                srcDown: _imgMove_pressedPng2['default']
 	            }, {
 	                name: 'draw',
 	                action: setState.bind(null, this, draw),
-	                srcRest: _imgDraw_restPng3['default'],
-	                srcGroup: _imgDraw_grouphoverpng3['default'],
-	                srcHover: _imgDraw_hoverpng3['default'],
-	                srcDown: _imgDraw_pressedpng3['default']
+	                srcRest: _imgDraw_restPng2['default'],
+	                srcGroup: _imgDraw_grouphoverPng2['default'],
+	                srcHover: _imgDraw_hoverPng2['default'],
+	                srcDown: _imgDraw_pressedPng2['default']
 	            }, {
 	                name: 'edit',
 	                action: setState.bind(null, this, edit),
-	                srcRest: _imgEdit_restpng3['default'],
-	                srcGroup: _imgEdit_grouphoverpng3['default'],
-	                srcHover: _imgEdit_hoverpng3['default'],
-	                srcDown: _imgEdit_pressedpng3['default']
+	                srcRest: _imgEdit_restPng2['default'],
+	                srcGroup: _imgEdit_grouphoverPng2['default'],
+	                srcHover: _imgEdit_hoverPng2['default'],
+	                srcDown: _imgEdit_pressedPng2['default']
 	            }]
 	        }).activate('move');
 	        return this;
@@ -617,7 +617,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	        this._mouseenter = (function () {
 	            if (this.overlay.diff) {
-	                document.getElementById("mycursor").style.backgroundimage = "url(\"http://cadess.net/minus.png\")";
+	                document.getElementById("mycursor").style.backgroundimage = "url(\"/minus.png\")";
 	            } else {
 	                document.getElementById("mycursor").style.backgroundimage = "url(\"/plus.png\");";
 	            };

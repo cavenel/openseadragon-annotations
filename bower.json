@@ -14,7 +14,8 @@
   "main": "src/openseadragon-annotations.js",
   "moduleType": "es6",
   "dependencies": {
-    "openseadragon": "~2.0.0"
+    "openseadragon": "~2.0.0",
+    "openseadragon-annotations": "^0.0.1"
   },
   "ignore": [
     "**/.*",

@@ -25,24 +25,24 @@ export default {
             controls: [{
                 name: 'move',
                 action: setState.bind(null, this, state),
-                srcRest: _imgMove_restPng2['default'],
-                srcGroup: _imgMove_grouphoverPng2['default'],
-                srcHover: _imgMove_hoverPng2['default'],
-                srcDown: _imgMove_pressedPng2['default']
+                srcRest: moveRest,
+                srcGroup: moveGroupHover,
+                srcHover: moveHover,
+                srcDown: movePressed
             }, {
                 name: 'draw',
                 action: setState.bind(null, this, draw),
-                srcRest: _imgDraw_restPng2['default'],
-                srcGroup: _imgDraw_grouphoverPng2['default'],
-                srcHover: _imgDraw_hoverPng2['default'],
-                srcDown: _imgDraw_pressedPng2['default']
+                srcRest: drawRest,
+                srcGroup: drawGroupHover,
+                srcHover: drawHover,
+                srcDown: drawPressed
             }, {
                 name: 'edit',
                 action: setState.bind(null, this, edit),
-                srcRest: _imgEdit_restPng2['default'],
-                srcGroup: _imgEdit_grouphoverPng2['default'],
-                srcHover: _imgEdit_hoverPng2['default'],
-                srcDown: _imgEdit_pressedPng2['default']
+                srcRest: editRest,
+                srcGroup: editGroupHover,
+                srcHover: editHover,
+                srcDown: editPressed
             }]
         }).activate('move');
         return this;
