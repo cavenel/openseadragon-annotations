@@ -1,0 +1,35 @@
+<html>
+<head>
+<script src="lib/openseadragon.js"></script>
+<script src="lib/clipper.js"></script>
+<script src="dist/openseadragon-annotations.js"></script>
+
+</head>
+<body>
+<div id='viewer'></div>
+
+<script>
+var viewer = OpenSeadragon({
+    id: 'viewer',
+    prefixUrl: './images/',
+    showNavigator:  true,
+    tileSources: {
+        Image: {
+            xmlns: 'http://schemas.microsoft.com/deepzoom/2008',
+            Url: 'http://content.zoomhub.net/dzis/TDbz_files/',
+            Format: 'jpg',
+            Overlap: '1',
+            TileSize: '254',
+            ServerFormat: 'Default',
+            Size: {
+                Height: '4409',
+                Width: '7793'
+            }
+        }
+    }
+});
+
+viewer.initializeAnnotations();
+</script>
+</body>
+</html>
