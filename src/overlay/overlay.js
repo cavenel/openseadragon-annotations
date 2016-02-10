@@ -190,6 +190,7 @@ function createPath(x, y) {
     path.setAttribute('stroke-width', '0.5');
     path.setAttribute('stroke-linejoin', 'round');
     path.setAttribute('stroke-linecap', 'round');
+    path.setAttribute('pointer-events', "none");
     path.setAttribute('d', 'M' + x + ' ' + y);
     return path;
 }

@@ -17,7 +17,13 @@ export default OpenSeadragon.extend(Object.create(state), {
             }
         }.bind(this);
         this._onMouseDown = function (e) {
-            this.handleMouseDown(e.offsetX==undefined?e.layerX:e.offsetX, e.offsetY==undefined?e.layerY:e.offsetY);
+            var x = e.offsetX==undefined?e.layerX:e.offsetX;
+            var y = e.offsetY==undefined?e.layerY:e.offsetY;
+            if (x>100 || y>100) {
+                this.x = x / this.overlay.el.clientWidth * 100;
+                this.y = y / this.overlay.el.clientHeight * 100;
+            }
+            this.handleMouseDown();
             document.addEventListener("mouseup", this._onMouseUp, false);
             e.stopPropagation();
         }.bind(this);
@@ -47,9 +53,7 @@ export default OpenSeadragon.extend(Object.create(state), {
         };
     },
 
-    handleMouseDown(x, y) {
-        this.x = x / this.overlay.el.clientWidth * 100;
-        this.y = y / this.overlay.el.clientHeight * 100;
+    handleMouseDown() {
         if (! this._interval) {
             this.overlay.first_x = this.x;
             this.overlay.first_y = this.y;
