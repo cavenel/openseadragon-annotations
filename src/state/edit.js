@@ -24,7 +24,7 @@ export default OpenSeadragon.extend(Object.create(state), {
         }.bind(this);
         this._mouseleave = function () {
             document.getElementById("mycursor").style.display = "none";
-        }.bind(this);
+        };
         this._mouseTracker = function (e) {
             var x = e.offsetX==undefined?e.layerX:e.offsetX;
             var y = e.offsetY==undefined?e.layerY:e.offsetY;

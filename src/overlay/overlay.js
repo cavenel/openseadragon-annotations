@@ -6,12 +6,21 @@ export default OpenSeadragon.extend(new OpenSeadragon.EventSource(), {
 
     @inject('viewer')
     initialize(viewer) {
+        this.viewer = viewer;
         this.el = createOverlay();
         this.svg = appendSVG(this.el);
-        this.viewer = viewer;
+        this.viewer.addHandler('animation', function (target) {
+            if (target.eventSource.viewport) {
+                var paths = document.getElementsByClassName("osd-annotations_path");
+                for (var i = 0; i < paths.length; ++i) {
+                    var item = paths[i];
+                    item.setAttribute('stroke-width', 0.05/(target.eventSource.viewport.getZoom(true) / target.eventSource.viewport.getMaxZoom()));
+                };
+            }
+        });
         this.el.addEventListener('mousedown', this.raiseEvent.bind(this, 'mousedown'), false);
         this.el.addEventListener('mouseup', this.raiseEvent.bind(this, 'mouseup'), false);
-        this.viewer.addOverlay(this.el, createOpenSeadragonRect(viewer));
+        this.viewer.addOverlay(this.el, createOpenSeadragonRect(this.viewer));
         return this;
     },
 
@@ -35,6 +44,7 @@ export default OpenSeadragon.extend(new OpenSeadragon.EventSource(), {
 
     startPath(x, y) {
         var path = createPath(x, y);
+        //path.addEventListener("click", click_path, false);
         this.svg.appendChild(path);
     },
 
@@ -43,13 +53,14 @@ export default OpenSeadragon.extend(new OpenSeadragon.EventSource(), {
             return;
         var dist = (x - this.first_x) *(x - this.first_x) + (y - this.first_y) *(y - this.first_y);
         var path = this.svg.lastChild;
-        if (Math.sqrt(dist)*this.viewer.viewport.getZoom(true) / this.viewer.viewport.getMaxZoom() < Math.sqrt(0.5) && path.getTotalLength()*this.viewer.viewport.getZoom(true) / this.viewer.viewport.getMaxZoom() > Math.sqrt(1.0)) {
+        if (Math.sqrt(dist)*this.viewer.viewport.getZoom(true) / this.viewer.viewport.getMaxZoom() < Math.sqrt(0.2) && path.getTotalLength()*this.viewer.viewport.getZoom(true) / this.viewer.viewport.getMaxZoom() > Math.sqrt(0.5)) {
             this.closed_curve=true;
             path.setAttribute('stroke', 'red');
         } else {
             this.closed_curve=false;
             path.setAttribute('stroke', 'black');
         }
+        path.setAttribute('fill', 'rgba(255,255,255,0.5)');
         if (this.drawing_up){
             if (this.last_path == undefined)
                 this.last_path = path.getAttribute('d');
@@ -163,11 +174,19 @@ function appendSVG(el) {
     el.appendChild(svg);
     return svg;
 }
-
+/*
+function click_path (e) {
+    console.log(e);
+    e.stopPropagation();
+    e.preventDefaultAction = true;
+    e.preventDefault();
+}
+*/
 function createPath(x, y) {
     var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('class', 'osd-annotations_path');
     path.setAttribute('fill', 'none');
-    path.setAttribute('stroke', 'red');
+    path.setAttribute('stroke', 'black');
     path.setAttribute('stroke-width', '0.5');
     path.setAttribute('stroke-linejoin', 'round');
     path.setAttribute('stroke-linecap', 'round');

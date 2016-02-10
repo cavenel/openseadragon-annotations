@@ -1,9 +1,14 @@
 import inject from '../context/inject';
 
-import drawGroupHover from '../../img/draw_grouphover.png';
-import drawHover from '../../img/draw_hover.png';
-import drawPressed from '../../img/draw_pressed.png';
-import drawRest from '../../img/draw_rest.png';
+import freehandGroupHover from '../../img/freehand_grouphover.png';
+import freehandHover from '../../img/freehand_hover.png';
+import freehandPressed from '../../img/freehand_pressed.png';
+import freehandRest from '../../img/freehand_rest.png';
+
+import polygonGroupHover from '../../img/polygon_grouphover.png';
+import polygonHover from '../../img/polygon_hover.png';
+import polygonPressed from '../../img/polygon_pressed.png';
+import polygonRest from '../../img/polygon_rest.png';
 
 import moveGroupHover from '../../img/move_grouphover.png';
 import moveHover from '../../img/move_hover.png';
@@ -17,8 +22,8 @@ import editRest from '../../img/edit_rest.png';
 
 export default {
 
-    @inject('state', 'draw',  'edit', 'controls', 'overlay')
-    initialize(state, draw, edit, controls, overlay) {
+    @inject('state', 'freehand', 'polygon', 'edit', 'controls', 'overlay')
+    initialize(state, freehand, polygon, edit, controls, overlay) {
         this.overlay = overlay.initialize();
         this.state = Object.create(state).initialize();
         this.controls = controls.initialize({
@@ -30,12 +35,19 @@ export default {
                 srcHover: moveHover,
                 srcDown: movePressed
             }, {
-                name: 'draw',
-                action: setState.bind(null, this, draw),
-                srcRest: drawRest,
-                srcGroup: drawGroupHover,
-                srcHover: drawHover,
-                srcDown: drawPressed
+                name: 'freehand',
+                action: setState.bind(null, this, freehand),
+                srcRest: freehandRest,
+                srcGroup: freehandGroupHover,
+                srcHover: freehandHover,
+                srcDown: freehandPressed
+            }, {
+                name: 'polygon',
+                action: setState.bind(null, this, polygon),
+                srcRest: polygonRest,
+                srcGroup: polygonGroupHover,
+                srcHover: polygonHover,
+                srcDown: polygonPressed
             }, {
                 name: 'edit',
                 action: setState.bind(null, this, edit),
