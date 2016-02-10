@@ -2,6 +2,32 @@ This plugin allows you to draw vector annotations over [OpenSeadragon](https://o
 
 ![Preview](img/preview.gif)
 
+<div id='viewer'></div>
+
+<script>
+var viewer = OpenSeadragon({
+    id: 'viewer',
+    prefixUrl: './lib/images/',
+    showNavigator:  true,
+    tileSources: {
+        Image: {
+            xmlns: 'http://schemas.microsoft.com/deepzoom/2008',
+            Url: 'http://content.zoomhub.net/dzis/TDbz_files/',
+            Format: 'jpg',
+            Overlap: '1',
+            TileSize: '254',
+            ServerFormat: 'Default',
+            Size: {
+                Height: '4409',
+                Width: '7793'
+            }
+        }
+    }
+});
+
+viewer.initializeAnnotations();
+</script>
+
 To use it, add both OpenSeadragon and the plugin as dependencies in your project. You could do it with [Bower](http://bower.io/).
 
 ```
