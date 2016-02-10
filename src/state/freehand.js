@@ -6,23 +6,27 @@ export default OpenSeadragon.extend(Object.create(state), {
 
     @inject('overlay')
     initialize(overlay) {
+        function get_coord(e) {
+            if (e.offsetX==undefined) {// this works for Firefox
+                var xpos = e.pageX-this.overlay.el.offset().left;
+                var ypos = e.pageY-this.overlay.el.offset().top;
+            } else {// works in Google Chrome
+                var xpos = e.offsetX;
+                var ypos = e.offsetY;
+            }
+            return { x: xpos, y: ypos };
+        };
         this.overlay = overlay;
         this.overlay.svg.style.cursor = "url('./img/pen-cursor.cur'), default";
         this._mouseTracker = function (e) {
-            var x = e.offsetX==undefined?e.layerX:e.offsetX;
-            var y = e.offsetY==undefined?e.layerY:e.offsetY;
-            if (x>100 || y>100) {
-                this.x = x / this.overlay.el.clientWidth * 100;
-                this.y = y / this.overlay.el.clientHeight * 100;
-            }
+            var coord = get_coord(e);
+            this.x = coord.x / this.overlay.el.clientWidth * 100;
+            this.y = coord.y / this.overlay.el.clientHeight * 100;
         }.bind(this);
         this._onMouseDown = function (e) {
-            var x = e.offsetX==undefined?e.layerX:e.offsetX;
-            var y = e.offsetY==undefined?e.layerY:e.offsetY;
-            if (x>100 || y>100) {
-                this.x = x / this.overlay.el.clientWidth * 100;
-                this.y = y / this.overlay.el.clientHeight * 100;
-            }
+            var coord = get_coord(e);
+            this.x = coord.x / this.overlay.el.clientWidth * 100;
+            this.y = coord.y / this.overlay.el.clientHeight * 100;
             this.handleMouseDown();
             document.addEventListener("mouseup", this._onMouseUp, false);
             e.stopPropagation();
