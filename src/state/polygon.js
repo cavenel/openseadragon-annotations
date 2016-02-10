@@ -7,13 +7,8 @@ export default OpenSeadragon.extend(Object.create(state), {
     @inject('overlay')
     initialize(overlay) {
         function get_coord(e) {
-            if (e.offsetX==undefined) {// this works for Firefox
-                var xpos = e.pageX-this.overlay.el.offset().left;
-                var ypos = e.pageY-this.overlay.el.offset().top;
-            } else {// works in Google Chrome
-                var xpos = e.offsetX;
-                var ypos = e.offsetY;
-            }
+            var xpos = e.offsetX==undefined?e.layerX:e.offsetX;
+            var ypos = e.offsetY==undefined?e.layerY:e.offsetY;
             return { x: xpos, y: ypos };
         };
         this.overlay = overlay;
